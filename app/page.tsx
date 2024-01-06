@@ -2,8 +2,10 @@ import { Hero } from '@components'
 import { CustomFilter, SearchBar, CarCard, ShowMore } from '@components'
 import { fuels, yearsOfProduction } from '@constants';
 import { fetchCars } from '@utils'
+import { URLSearchParams } from 'url';
 
-export default async function Home({ searchParams }) {
+
+export default async function Home({ searchParams } : { searchParams: URLSearchParams }) {
 
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
