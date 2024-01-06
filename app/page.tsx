@@ -4,8 +4,15 @@ import { fuels, yearsOfProduction } from '@constants';
 import { fetchCars } from '@utils'
 import { URLSearchParams } from 'url';
 
+interface SearchParams {
+  manufacturer: string;
+  model: string;
+  fuel: string;
+  year: number;
+  limit: number;
+}
 
-export default async function Home({ searchParams } : { searchParams: URLSearchParams }) {
+export default async function Home({ searchParams } : { searchParams: SearchParams }) {
 
   const allCars = await fetchCars({
     manufacturer: searchParams.manufacturer || '',
